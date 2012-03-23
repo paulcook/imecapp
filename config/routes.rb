@@ -1,4 +1,6 @@
 Imecapp::Application.routes.draw do
+  devise_for :users
+
   get "index/index"
 
   # The priority is based upon order of creation:
