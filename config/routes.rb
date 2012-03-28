@@ -1,4 +1,8 @@
 Imecapp::Application.routes.draw do
+  resources :supporters
+
+  resources :providers
+
   devise_for :users
 
   get "index/index"

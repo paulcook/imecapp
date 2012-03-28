@@ -1,2 +1,20 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
+
+body {
+  padding-top: 2em;
+}
+.container, .navbar {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.navbar .nav {
+  float: right;
+  margin-right: 30px;
+}
+
+.title {
+  margin: 1em 0;
+  text-align: center;
+}
