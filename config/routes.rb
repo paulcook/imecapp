@@ -1,7 +1,15 @@
 Imecapp::Application.routes.draw do
-  resources :supporters
+  resources :addresses
 
-  resources :providers
+  resources :companies
+
+  resources :supporters do
+    resources :users
+  end
+
+  resources :providers do
+    resources :users
+  end
 
   devise_for :users
 
