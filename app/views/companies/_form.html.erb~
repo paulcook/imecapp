@@ -1,0 +1,14 @@
+<%= form_for @company, :html=>{:class=>"form-horizontal"} do |f| %>
+  <div class="control-group">
+    <%= f.label :name, "Legal Name", :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tax_id, "Tax ID", :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :tax_id %>
+    </div>
+  </div> 
+<% end %>
