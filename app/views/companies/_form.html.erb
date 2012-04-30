@@ -5,7 +5,7 @@
     </div>
   </div>
   <%= f.fields_for :address do |a| %>
-  <%= render "addresses/form",{:f=>a}
+    <%= render "addresses/form",{:f=>a} %>
   <% end %>
   <div class="control-group">
     <%= f.label :tax_id, "Tax ID", :class=>"control-label" %>
@@ -13,3 +13,16 @@
       <%= f.text_field :tax_id %>
     </div>
   </div> 
+  <div class="control-group">
+    <%= f.label :accreditations, "Accreditations", :class=>"control-label" %>
+    <div class="controls">
+      <%= f.select :accreditations,['ACCME','ACNP','CPNP','ETC'], {},{:multiple=>true} %>
+    </div>
+  </div> 
+   <div class="control-group">
+    <%= f.label :is_501c3, "501(c3)", :class=>"control-label" %>
+    <div class="controls">
+      <%= f.radio_button :is_501c3, "Yes" %> <%= f.label :is_501c3, "Yes" %> <%= f.radio_button :is_501c3,"No" %> <%= f.label :is_501c3, "No" %>
+    </div>
+  </div> 
+  <%= f.submit "Save Company and Continue" %> 

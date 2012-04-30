@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
   def new
     @company = Company.new
+    @address = @company.build_address
   end
 
   def create

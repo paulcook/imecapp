@@ -1,4 +1,10 @@
 Imecapp::Application.routes.draw do
+  get "dashboard/index", :as=>:dashboard
+
+  get "users/new"
+
+  post "users/create"
+
   resources :addresses
 
   resources :companies

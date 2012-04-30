@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328010907) do
+ActiveRecord::Schema.define(:version => 20120430130837) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(:version => 20120328010907) do
     t.string   "company_type"
     t.string   "tax_id"
     t.boolean  "is_501c3"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "accreditations"
   end
 
   create_table "users", :force => true do |t|
