@@ -1,3 +1,0 @@
-<h1>Add a New Provider</h1>
-<%= render "companies/form" %>
-
