@@ -1,15 +1,16 @@
 class ProvidersController < ApplicationController
   def new
-    @company = Company.new
-    @address = @company.build_address
+    @user = User.new
+    #@user.view_type = "provider"
   end
 
   def create
-    @company = Company.new(params[:company])
+    @user = User.new(params[:user])
+    @user.view_type = "provider"
 
-    if @company.save
-      flash[:success] = "You have successfully added a company."
-      redirect_to new_provider_user_path(@company)
+    if @user.save
+      flash[:success] = "Thank you for signing up."
+      redirect_to new_provider_company_path(@user)
     else
       render :new
     end

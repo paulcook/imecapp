@@ -21,6 +21,7 @@ end
 
 gem 'bootstrap-sass', '~> 2.0.1'
 gem 'jquery-rails'
+gem 'dynamic_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

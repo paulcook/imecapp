@@ -1,6 +1,6 @@
-<h1>Sign Up - Company <small>New Provider</small></h1>
-<%= form_for @company, :url=>providers_path, :html=>{:class=>"form-horizontal"} do |f| %>
-  <%= f.hidden_field :company_type, "provider" %>
-  <%= render "companies/form",{:f=>f} %>
+<h1>Sign Up <small>New Provider</small></h1>
+<%= form_for @user, :url=>providers_path, :html=>{:class=>"form-horizontal"} do |f| %>
+  <%= f.error_messages %>
+  <%= render "users/form",{:f=>f} %>
 <% end %>
 

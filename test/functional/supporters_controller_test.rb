@@ -6,16 +6,17 @@ class SupportersControllerTest < ActionController::TestCase
     
     assert_response :success
     assert_template :new
-    assert assigns(:supporter)
+    assert assigns(:user)
   end
   
   test "a user can signup as a supporter" do
     
-    supporter_attribs = FactoryGirl.attributes_for(:supporter_company)
+    supporter_attribs = FactoryGirl.attributes_for(:supporter)
     
-    assert_difference "Supporter.count", 1 do
-      post :create, :supporter=>{}
+    assert_difference "User.count", 1 do
+      post :create, :user=>supporter_attribs
     end
-    assert_redirected_to supporter_path(assigns(:supporter))
+
+    assert_redirected_to new_supporter_company_path(assigns(:supporter))
   end
 end

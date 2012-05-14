@@ -1,20 +1,16 @@
 Imecapp::Application.routes.draw do
   get "dashboard/index", :as=>:dashboard
 
-  get "users/new"
-
-  post "users/create"
-
+  #resources :users
   resources :addresses
-
   resources :companies
 
   resources :supporters do
-    resources :users
+    resources :company
   end
 
   resources :providers do
-    resources :users
+    resources :company
   end
 
   devise_for :users

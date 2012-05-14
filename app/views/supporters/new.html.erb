@@ -1,0 +1,7 @@
+<h1>Sign Up <small>New Supporter</small></h1>
+<%= form_for @user, :url=>supporters_path, :html=>{:class=>"form-horizontal"} do |f| %>
+  <%= f.error_messages %>
+  <%= render "users/form",{:f=>f} %>
+<% end %>
+
+
