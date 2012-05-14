@@ -10,7 +10,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "a supporter can view new company form" do
     sign_in @supporter
 
-    get :new, :supporter_id=>@user.id
+    get :new, :supporter_id=>@supporter.id
     
     assert_response :success
     assert_template :new
@@ -25,7 +25,7 @@ class CompaniesControllerTest < ActionController::TestCase
     supporter_attribs[:address_attributes] = FactoryGirl.attributes_for(:address)
 
     assert_difference "Company.count", 1 do
-      post :create,  :provider=>supporter_attribs
+      post :create,  :company=>supporter_attribs, :supporter_id=>@supporter.id
     end
 
     assert_redirected_to dashboard_path
@@ -41,7 +41,7 @@ class CompaniesControllerTest < ActionController::TestCase
     provider_attribs[:address_attributes] = FactoryGirl.attributes_for(:address)
 
     assert_difference "Company.count", 1 do
-      post :create,  :provider=>provider_attribs
+      post :create,  :provider_id=>@provider.id, :company=>provider_attribs
     end
 
     assert_redirected_to dashboard_path
@@ -52,7 +52,7 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should not be able to create company without registered user" do
     get :new
 
-    assert_redirected_to root_path
+    assert_redirected_to new_user_session_path
   end
 
 end

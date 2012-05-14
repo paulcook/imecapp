@@ -11,12 +11,12 @@ class ProvidersControllerTest < ActionController::TestCase
   
   test "a user can signup as a provider" do
     
-    provider_attribs = FactoryGirl.attributes_for(:provider)
+    provider_attribs = FactoryGirl.attributes_for(:user)
     
     assert_difference "User.count", 1 do
       post :create, :user=>provider_attribs
     end
 
-    assert_redirected_to new_provider_company_path(assigns(:provider))
+    assert_redirected_to new_provider_company_path(assigns(:user))
   end
 end

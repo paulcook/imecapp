@@ -6,11 +6,11 @@ Imecapp::Application.routes.draw do
   resources :companies
 
   resources :supporters do
-    resources :company
+    resources :companies
   end
 
   resources :providers do
-    resources :company
+    resources :companies
   end
 
   devise_for :users

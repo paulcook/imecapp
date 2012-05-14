@@ -11,12 +11,12 @@ class SupportersControllerTest < ActionController::TestCase
   
   test "a user can signup as a supporter" do
     
-    supporter_attribs = FactoryGirl.attributes_for(:supporter)
-    
+    supporter_attribs = FactoryGirl.attributes_for(:user)
+    #print supporter_attribs.inspect
     assert_difference "User.count", 1 do
       post :create, :user=>supporter_attribs
     end
 
-    assert_redirected_to new_supporter_company_path(assigns(:supporter))
+    assert_redirected_to new_supporter_company_path(assigns(:user))
   end
 end

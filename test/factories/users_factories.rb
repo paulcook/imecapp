@@ -4,7 +4,7 @@ FactoryGirl.define do
     last_name "User"
     sequence(:email) { |n| "example#{n}@example.com"}
     password "testpass"
-    password_confirmation "test_pass"
+    password_confirmation "testpass"
     
     factory :provider do
       association :company, :factory=>:provider_company
