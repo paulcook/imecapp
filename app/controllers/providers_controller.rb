@@ -9,8 +9,9 @@ class ProvidersController < ApplicationController
     @user.view_type = "provider"
 
     if @user.save
+      sign_in(@user)
       flash[:success] = "Thank you for signing up."
-      redirect_to new_provider_company_path(@user)
+      redirect_to new_company_path
     else
       render :new
     end

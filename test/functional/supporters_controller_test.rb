@@ -17,6 +17,6 @@ class SupportersControllerTest < ActionController::TestCase
       post :create, :user=>supporter_attribs
     end
 
-    assert_redirected_to new_supporter_company_path(assigns(:user))
+    assert_redirected_to new_company_path
   end
 end

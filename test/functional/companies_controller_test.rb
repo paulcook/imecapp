@@ -3,14 +3,14 @@ require 'test_helper'
 class CompaniesControllerTest < ActionController::TestCase
   
   setup do
-    @supporter = FactoryGirl.create(:supporter)
-    @provider = FactoryGirl.create(:provider)
+    @supporter = FactoryGirl.create(:supporter,:view_type=>"supporter")
+    @provider = FactoryGirl.create(:provider,:view_type=>"provider")
   end
 
   test "a supporter can view new company form" do
     sign_in @supporter
 
-    get :new, :supporter_id=>@supporter.id
+    get :new
     
     assert_response :success
     assert_template :new
@@ -25,7 +25,7 @@ class CompaniesControllerTest < ActionController::TestCase
     supporter_attribs[:address_attributes] = FactoryGirl.attributes_for(:address)
 
     assert_difference "Company.count", 1 do
-      post :create,  :company=>supporter_attribs, :supporter_id=>@supporter.id
+      post :create,  :company=>supporter_attribs
     end
 
     assert_redirected_to dashboard_path
@@ -41,7 +41,7 @@ class CompaniesControllerTest < ActionController::TestCase
     provider_attribs[:address_attributes] = FactoryGirl.attributes_for(:address)
 
     assert_difference "Company.count", 1 do
-      post :create,  :provider_id=>@provider.id, :company=>provider_attribs
+      post :create, :company=>provider_attribs
     end
 
     assert_redirected_to dashboard_path
